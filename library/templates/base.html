@@ -1,0 +1,87 @@
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="{% static 'images/icon.png' %}" type="img/png">
+    <title>Library Management System</title>
+{#    Fonts#}
+    <link href="{% static 'fonts/Bellefair-Regular.ttf' %}">
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    {#        Bootstrap CSS#}
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="{% static 'plugins/bootstrap-3.3.7-dist/css/bootstrap.min.css' %}">
+    {#    jQuery#}
+    <script src="{% static 'plugins/jquery.js' %}"></script>
+{#    Bootstrap JS#}
+    <script src="{% static 'plugins/bootstrap-3.3.7-dist/js/bootstrap.min.js' %}"></script>
+    {#    local CSS#}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+{#    toastr#}
+    <script src="{% static 'plugins/toastr/build/toastr.min.js' %}" > </script>
+    <link rel="stylesheet" href="{% static 'plugins/toastr/build/toastr.css' %}">
+
+</head>
+<body>
+<script>
+
+toastr.options = {
+  "debug": false,
+  "positionClass": "toast-top-center",
+  "onclick": null,
+  "fadeIn": 300,
+  "fadeOut": 1000,
+  "timeOut": 5000,
+  "extendedTimeOut": 1000
+}
+</script>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid nav-content">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navBar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/" class="navbar-brand">Library Management</a>
+        </div>
+        <div class="collapse navbar-collapse" id="navBar">
+            <ul class="nav navbar-nav" id="hello">
+               <li class="btn-margin"><a href="../admin_page"><button class="btn btn-default nav-button">Admin View</button></a></li>
+               <li class="btn-margin"><a href="../register"><button class="btn btn-default nav-button">Register</button></a></li>
+               <li class="btn-margin"><a href="../login_user"><button class="btn btn-default nav-button login-btn">Login</button></a></li>
+               <li class="btn-margin"><a href="../logout_user"><button class="btn btn-default nav-button logout-btn">Logout</button></a></li>
+               <li class="btn-margin"><a class="glyphicon glyphicon-shopping-cart shopping-cart-button" href="../cart">Cart</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="row">
+    <br>
+    <br>
+    <div class="col-md-offset-0 col-sm-offset-0 col-lg-offset-0 col-xs-offset-0" id = "heading">
+        Library Management System!
+    </div>
+    {% if request.user.is_active %}
+       <script>
+           $(".login-btn").hide();
+           $(".logout-btn").show();
+           $(".searchBooks").prop('disabled', false);
+       </script>
+    {% else %}
+        <script>
+        $(".login-btn").show();
+        $(".logout-btn").hide();
+        $(".searchBooks").prop('disabled', true);
+        </script>
+    {% endif %}
+</div>
+    <br>
+<div class="row">
+    <div class="col-md-offset-0 col-sm-offset-0 col-xs-offset-0 col-lg-offset-0" id="content-text">
+    </div>
+</div>
+{% block content %}
+{% endblock %}
+</body>
+</html>

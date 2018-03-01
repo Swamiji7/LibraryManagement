@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% if success_message  %}
+    <script>toastr.success('{{ success_message }}');</script>
+{% endif %}
+{% if info_message  %}
+    <script>toastr.info('{{ info_message }}');</script>
+{% endif %}
+{% if error_message  %}
+    <script>toastr.error('{{ error_message }}');</script>
+{% endif %}
+{% block content %}
+        <center><h1 class="navbar-brand1">Your Cart</h1></center>
+
+
+    {% for item in cart_list %}
+	    <div class="row">
+	    	<div class="col-sm-4 col-md-4 col-lg-4">
+	    	</div>
+	    	<div class="col-sm-4 col-md-4 col-lg-4">
+	    		<div class="w3-card-4 book_card">
+					<header class="w3-container w3-green">
+  					<h1><div class="title">{{ item.book_name }}</div></h1>
+					</header>
+					<div class="w3-container">
+  						<div class="author"><h3>{{ item.author }}</h3></div>
+					</div>
+					<div class="w3-container">
+  						<div class="category"><h5>{{ item.category }}</h5></div>
+					</div>
+					<footer class="w3-container w3-green">
+					  <div class="footer-container" style="padding-top:3px;padding-bottom: 3px">
+					  <center>
+          <input name="{{ item.id }}" type="checkbox">Add to Cart
+					  </center>
+					  </div>
+					</footer>
+
+
+				</div>
+	    	</div>
+	    	<div class="col-sm-4 col-md-4 col-lg-4">
+	    	</div>
+	    </div>
+        <br>
+        <br>
+    {% endfor %}
+<div class="container">
+  <h2>Checkout Books</h2>
+  <p>Please confirm the list of books to be lended</p>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Book Name</th>
+        <th>Author Name</th>
+        <th>Due date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Book1</td>
+        <td>Author1</td>
+        <td>28/02/2018</td>
+      </tr>
+       <tr>
+        <td>Book2</td>
+        <td>Author2</td>
+        <td>28/02/2018</td>
+      </tr>
+       <tr>
+        <td>Book3</td>
+        <td>Author3</td>
+        <td>28/02/2018</td>
+      </tr>
+    </tbody>
+  </table>
+  <center><button type="button" class="btn btn-success">Submit</button></center>
+</div>
+{% endblock %}

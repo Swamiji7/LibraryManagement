@@ -1,0 +1,251 @@
+{% extends 'base.html' %}
+{% if success_message  %}
+    <script>toastr.success('{{ success_message }}');</script>
+{% endif %}
+{% if info_message  %}
+    <script>toastr.info('{{ info_message }}');</script>
+{% endif %}
+{% if error_message  %}
+    <script>toastr.error('{{ error_message }}');</script>
+{% endif %}
+{% block content %}
+    <style>
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+.button1 {
+    background-color: white;
+    color: black;
+    border: 2px solid #4CAF50;
+}
+.button1:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+</style>
+<div class="container">
+  <div class="alert alert-success"><center><h2 >Add books</h2></center></div>
+  <form class="form-horizontal">
+
+    <div class="form-group has-success has-feedback">
+      <label class="col-sm-4 control-label" for="inputSuccess">Enter book name</label>
+      <div class="col-sm-6">
+        <input type="text" class="form-control" id="inputSuccess" required>
+        <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+      </div>
+    </div>
+    <div class="form-group has-success has-feedback">
+      <label class="col-sm-4 control-label" for="inputSuccess">Enter ISBN</label>
+      <div class="col-sm-6">
+        <input type="text" class="form-control" id="inputSuccess" required>
+        <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+      </div>
+    </div>
+    <div class="form-group has-success has-feedback">
+      <label class="col-sm-4 control-label" for="inputSuccess" required>Enter Author name</label>
+      <div class="col-sm-6">
+        <input type="text" class="form-control" id="inputSuccess" required>
+        <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+      </div>
+    </div>
+    <div class="form-group has-success has-feedback">
+      <label class="col-sm-4 control-label" for="inputSuccess">Enter book name</label>
+      <div class="col-sm-6">
+        <input type="text" class="form-control" id="inputSuccess" required>
+        <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+      </div>
+    </div>
+    <div class="form-group has-success has-feedback">
+      <label class="col-sm-4 control-label" for="inputSuccess">Select category</label>
+      <div class="col-sm-6">
+        <div class="dropdown" >
+            <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown" style="width:100%">Select
+            <span class="caret"></span></button>
+            <ul class="dropdown-menu" style="width:100%">
+              <li><a href="#">Dictionary</a></li>
+              <li><a href="#">Encyclopedia</a></li>
+              <li><a href="#">Fiction</a></li>
+              <li><a href="#">Non-Fiction</a></li>
+            </ul>
+           </div>
+      </div>
+    </div>
+
+    <br>
+    <br>
+    <center><button type="submit" class="button1"><h4>Submit</h4></button></center>
+
+  </form>
+</div>
+
+
+  <script>
+  	function del(){
+  		alert("Are you sure you want to delete this book?");
+  	}
+  </script>
+
+
+  <div class="alert alert-success"><center><h2 >Delete books</h2></center></div>
+  <div class="container">
+  <h2>Delete books</h2>
+  <p>Please Remove the books from list of books</p>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Book Name</th>
+        <th>Author Name</th>
+        <th>Remove</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Book1</td>
+        <td>Author1</td>
+        <td><button type="button" class="btn btn-default btn-sm" onclick="del()">
+          <span class="glyphicon glyphicon-remove"></span> Remove
+        </button></td>
+      </tr>
+       <div><tr>
+        <td>Book2</td>
+        <td>Author2</td>
+        <td><button type="button" class="btn btn-default btn-sm" onclick="del()">
+          <span class="glyphicon glyphicon-remove"></span> Remove
+        </button></td>
+      </tr>
+       <tr>
+        <td>Book3</td>
+        <td>Author3</td>
+        <td><button type="button" class="btn btn-default btn-sm" onclick="del()">
+          <span class="glyphicon glyphicon-remove"></span> Remove
+        </button></td>
+      </tr>
+    </tbody>
+  </table>
+  <center><button type="button" class="btn btn-success">Submit</button></center>
+</div>
+<br>
+  <div class="alert alert-success"><center><h2 >Category Search</h2></center></div>
+    <style>
+.collapsible {
+    background-color: #777;
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 22px;
+}
+
+.active, .collapsible:hover {
+    background-color: #555;
+}
+
+.collapsible:after {
+    content: '\002B';
+    color: white;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+}
+
+.active:after {
+    content: "\2212";
+}
+
+.content {
+    padding: 0 18px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    background-color: #f1f1f1;
+
+}
+.books-container{
+  margin-top:10px;
+}
+</style>
+<br>
+<center><h1> Category Search</h1></center>
+
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-4 col-md-4 col-lg-4"></div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+         <div class="dropdown" >
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="width:290px">Select Category
+            <span class="caret"></span></button>
+            <ul class="dropdown-menu" style="width:290px">
+              <li><a href="#">Dictionary</a></li>
+              <li><a href="#">Encyclopedia</a></li>
+              <li><a href="#">Fiction</a></li>
+              <li><a href="#">Non-Fiction</a></li>
+            </ul>
+           </div>
+
+        </div>
+      <div class="col-sm-4 col-md-4 col-lg-4"></div>
+    </div>
+<div class="books-container">
+ <div class="row">
+      <div class="col-sm-4 col-md-4 col-lg-4"></div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+
+  <button class="collapsible">Book Title</button>
+  <div class="content">
+  <div class="w3-card-4 book_card">
+
+          <div class="w3-container">
+              <div class="author"><h3>Author</h3></div>
+          </div>
+          <div class="w3-container">
+              <div class="category"><h5>Category</h5></div>
+          </div>
+          <footer class="w3-container w3-blue">
+            <div class="footer-container" style="padding-top:3px;padding-bottom: 3px">
+            <center><button type="button" class="btn btn-default btn-sm">
+          <span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart
+        </button>
+            </center>
+            </div>
+          </footer>
+
+
+        </div>
+  </div>
+      </div>
+              <div class="col-sm-4 col-md-4 col-lg-4"></div>
+</div>
+      </div><!--end of books container>-->
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+    }
+  });
+}
+
+</script>
+</div>
+{% endblock %}

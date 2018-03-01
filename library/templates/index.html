@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if success_message  %}
+    <script>toastr.success('{{ success_message }}');</script>
+{% endif %}
+{% if info_message  %}
+    <script>toastr.info('{{ info_message }}');</script>
+{% endif %}
+{% if error_message  %}
+    <script>toastr.error('{{ error_message }}');</script>
+{% endif %}
+
+<div class="container-fluid">
+    <form class="form-group" method="post" action="/get_books" enctype="multipart/form-data">
+		<div class="row">
+			<center>
+				<div class="col-sm-9 input-group search"  id="search_box_container">
+					<input type="text" class="form-control searchBooks" name="bookName" id="search_box" placeholder="Search Name / Author" >
+					<div class="input-group-btn">
+		      			<button class="btn btn-default searchBooksButton" type="submit">
+		        			<i class="glyphicon glyphicon-search"></i>
+		      			</button>
+		      		</div>
+	      		</div>
+	      	</center>
+	     </div>
+    </form>
+
+    {% if request.user.is_active %}
+    <script>
+           $(".searchBooks").prop('disabled', false);
+           $(".searchBooksButton").prop('disabled', false);
+       </script>
+    {% else %}
+
+    <form class="form-group" method="post" action="/add_to_cart" enctype="multipart/form-data">
+        <script>
+        toastr.info("Login/Register to Search Books");
+        $(".searchBooks").prop('disabled', true);
+        $(".searchBooksButton").prop('disabled', true);
+        </script>
+    {% endif %}
+    {% if book_list.count == 0 and author_list.count == 0 %}
+        <center><h2 class="navbar-brand1">Search returned with 0 results</h2></center>
+    {% else %}
+    <center><h2 class="navbar-brand1">By Name</h2></center>
+
+    {% for item in book_list %}
+	    <div class="row">
+	    	<div class="col-sm-4 col-md-4 col-lg-4">
+	    	</div>
+	    	<div class="col-sm-4 col-md-4 col-lg-4">
+	    		<div class="w3-card-4 book_card">
+					<header class="w3-container w3-blue">
+  					<h1><div class="title">{{ item.book_name }}</div></h1>
+					</header>
+
+
+					<div class="w3-container">
+  						<div class="author"><h3>{{ item.author }}</h3></div>
+					</div>
+					<div class="w3-container">
+  						<div class="category"><h5>{{ item.category }}</h5></div>
+					</div>
+					<footer class="w3-container w3-blue">
+					  <div class="footer-container" style="padding-top:3px;padding-bottom: 3px">
+					  <center>
+           <input name="{{ item.id }}" type="checkbox">Add to Cart
+					  </center>
+					  </div>
+					</footer>
+
+
+				</div>
+	    	</div>
+	    	<div class="col-sm-4 col-md-4 col-lg-4">
+	    	</div>
+	    </div>
+    {% endfor %}
+    <br>
+    <center><h2 class="navbar-brand1">By Author</h2></center>
+    <br>
+    {% for item in author_list %}
+	    <div class="row">
+	    	<div class="col-sm-4 col-md-4 col-lg-4">
+	    	</div>
+	    	<div class="col-sm-4 col-md-4 col-lg-4">
+	    		<div class="w3-card-4 book_card">
+					<header class="w3-container w3-green">
+  					<h1><div class="title">{{ item.book_name }}</div></h1>
+					</header>
+					<div class="w3-container">
+  						<div class="author"><h3>{{ item.author }}</h3></div>
+					</div>
+					<div class="w3-container">
+  						<div class="category"><h5>{{ item.category }}</h5></div>
+					</div>
+					<footer class="w3-container w3-green">
+					  <div class="footer-container" style="padding-top:3px;padding-bottom: 3px">
+					  <center>
+          <input name="{{ item.id }}" type="checkbox">Add to Cart
+					  </center>
+					  </div>
+					</footer>
+
+
+				</div>
+	    	</div>
+	    	<div class="col-sm-4 col-md-4 col-lg-4">
+	    	</div>
+	    </div>
+        <br>
+        <br>
+    {% endfor %}
+        <center><button class="addCartButton centerText btn btn-success" type="submit">Add Selected to Cart</button></center>
+    </form>
+    <br>
+    <br>
+    {% endif %}
+</div>
+
+
+
+
+{% endblock %}

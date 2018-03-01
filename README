@@ -1,0 +1,35 @@
+TEAM3 - Library Management System
+
+Stack: 
+
+Front End: HTML, CSS
+Back End: Django
+Database: SQLite
+Script: Javascript
+Tools:
+1) Bootstrap
+2) JQuery
+3) Toastr - to give Toast Notification
+
+
+How to install:
+
+Python: Version 3.6
+Django: Version 2.0
+
+Python: sudo apt get-install python3
+Django: pip3 install django
+
+How to run:
+
+1) cd to LibraryManagement/
+
+2) python3 manage.py migrate
+
+3) python3 manage.py runserver
+
+
+TEAM:
+Balakrishnan S
+Swaminathan G
+Chandramowli J

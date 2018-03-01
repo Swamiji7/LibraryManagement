@@ -1,0 +1,136 @@
+body{
+    color: #000;
+    margin: 60px 20px 0px 20px;
+}
+
+.navbar-brand{
+    font-family: 'Lobster', cursive;
+    font-size: 25px;
+}
+
+.navbar-brand1{
+    font-family: 'Lobster', cursive;
+    font-size: 25px;
+}
+
+
+.nav-content{
+    margin: 0px 30px 0px 30px;
+}
+.nav-button a{
+    color: #1ABE00;
+}
+.nav-button{
+    margin: 10px 10px 10px 10px;
+    border-style: solid;
+    border-color: #1ABE00;
+}
+.nav-button:hover{
+    background-color: #1ABE00;
+    color: #fff;
+}
+.nav-button:hover a{
+    color: #FFFFFF;
+}
+#heading{
+    font-size: 200%;
+    text-align: center;
+}
+.fields{
+    height: 30px;
+    border-radius: 8%;
+}
+#heading1{
+    font-size: 35px;
+}
+#content-text{
+    font-size: 16px;
+    text-align: center;
+}
+.reg-form{
+    background-color: #c2cbb6;
+    color: #000000;
+    margin-top: 7%;
+    text-align: center;
+}
+.navigation{
+    font-size: larger;
+    color: orangered;
+
+}
+.nav-pills{
+    border-radius: 5%;
+    background-color: transparent;
+}
+.nav-pills li{
+    border: 1px solid black;
+    border-radius: 5%;
+}
+.navbar-nav{
+        text-align: center;
+        display: inline;
+    }
+.logout{
+    float: right;
+    margin-top: 3%;
+    background-color: #c9302c;
+}
+a:hover
+{
+    color: #000000;
+    text-decoration: none;
+}
+a{
+    color: #000000;
+}
+.navbar-default{
+    background-color: #FFFFFF;
+    box-shadow: 2px 2px 5px #000000;
+}
+.active{
+    color: #000000;
+}
+.search-bar{
+    text-align: center;
+    margin-top: 20px;
+}
+#search-text{
+    background-color: #FFFFFF;
+    color: black;
+    border-radius: 5px;
+}
+.search-btn{
+
+    border-radius: 5px;
+    background-color: #FFFFFF;
+}
+.search-btn:hover{
+    background-color: #0084b4;
+    color: #FFFFFF;
+}
+.modal-title{
+    text-align: center;
+}
+@media screen and (min-width: 480px) {
+    .navbar-nav{
+          float: right;
+    }
+}
+
+.btn-margin{
+    margin: -10px -10px -10px -10px;
+}
+.shopping-cart-button{
+    font-size: 25px;
+    margin-top: 10px;
+
+}
+
+.search{
+		margin-top:20px;
+		padding-top:5px;
+}
+
+.book_card{
+	margin-top: 50px;
+}
